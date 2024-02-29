@@ -1,9 +1,9 @@
-import LoggedInHeader from "../../components/LoggedInHeader/LoggedInHeader"
+import Header from "../../components/Header/Header"
 
 export default function CreatePost(){
     return (
         <>
-            <LoggedInHeader />
+            <Header loggedIn={true} />
             <main className="p-12 flex flex-col items-center">
                 <form className="flex flex-col" action="">
                     <label htmlFor="">Título da notícia</label>

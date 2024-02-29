@@ -1,20 +1,11 @@
-import LoggedInHeader from '../../components/LoggedInHeader/LoggedInHeader'
 import { SlUserFollow } from "react-icons/sl";
-import UserPosts from '../../components/UserPosts/UserPosts';
 import { useAppSelector } from '../../hooks/hooks';
-import LoggedOutHeader from '../../components/LoggedOutHeader/LoggedOutHeader';
-
-interface PostType{
-    id: string,
-    title: string,
-    tags: string[],
-    description: string,
-    img: string
-}
+import RenderPosts from '../../components/RenderPosts/RenderPosts';
+import Header from "../../components/Header/Header";
 
 export default function Profile(){
 
-    const userPosts: PostType[] = [
+    const userPosts = [
         {
             id: '0',
             title: 'Título',
@@ -49,7 +40,7 @@ export default function Profile(){
 
     return (
         <>
-            {isLoggedIn ? <LoggedInHeader /> : <LoggedOutHeader />}
+            <Header loggedIn={true} />
             <main className='p-12 flex flex-col items-center gap-12'>
                 <div className='flex gap-6 flex-wrap justify-center'>
                     <img className='max-w-80 440:max-w-96 640:max-w-xl rounded-xl' src="https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
@@ -61,7 +52,7 @@ export default function Profile(){
                         <p className='text-justify'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique suscipit quia porro pariatur totam, vero accusantium vitae eius repellendus rerum dolorum quis debitis quo reiciendis, quidem harum eveniet distinctio mollitia!</p>
                     </div>
                 </div>
-                <UserPosts posts={userPosts} />
+                <RenderPosts posts={userPosts} type='user' />
             </main>
         </>
     )

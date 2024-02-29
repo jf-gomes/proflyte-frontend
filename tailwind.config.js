@@ -8,7 +8,9 @@ export default {
     screens: {
       '440': '440px',
       '640': '640px',
-      '780': '780px'
+      '780': '780px',
+      '1100': '1100px',
+      '2400': '2400px'
     },
     extend: {
       colors: {
