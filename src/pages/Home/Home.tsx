@@ -1,11 +1,7 @@
 import { useState } from "react"
 import Header from "../../components/Header/Header"
 import RenderPosts from "../../components/RenderPosts/RenderPosts"
-import SelectCategory from "../../components/SelectCategory/SelectCategory"
-
-type CategoryType = {
-    category: 'all' | 'technology' | 'engineering' | 'business' | 'environment' | 'marketing' | 'jornalism' | 'archtechture' | 'education' | 'health' | 'industry' | 'design' | 'graphic computing' | 'public management'
-}
+import ShowCategory from "../../components/ShowCategory/ShowCategory"
 
 export default function Home(){
 
@@ -47,7 +43,7 @@ export default function Home(){
             <Header loggedIn={false} />
             <main className="flex flex-col p-12 gap-6">
                 <h2 className="font-bold text-blue text-2xl">Principais notícias</h2>
-                <SelectCategory category={category} setCategory={setCategory} />
+                <ShowCategory category={category} setCategory={setCategory} />
                 <RenderPosts posts={data} type="all" />
             </main>
         </>
