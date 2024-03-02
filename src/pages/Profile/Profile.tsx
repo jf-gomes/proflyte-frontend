@@ -9,28 +9,28 @@ export default function Profile(){
         {
             id: '0',
             title: 'Título',
-            tags: ['technology', 'brazil'],
+            tag: 'technology',
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
             img: 'https://images.pexels.com/photos/13461069/pexels-photo-13461069.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
         },
         {
             id: '1',
             title: 'Título 2',
-            tags: ['technology', 'brazil'],
+            tag: 'technology',
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
             img: 'https://images.pexels.com/photos/13461069/pexels-photo-13461069.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
         },
         {
             id: '2',
             title: 'Título 3',
-            tags: ['technology', 'brazil'],
+            tag: 'technology',
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
             img: 'https://images.pexels.com/photos/13461069/pexels-photo-13461069.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
         },
         {
             id: '3',
             title: 'Título 4',
-            tags: ['technology', 'brazil'],
+            tag: 'technology',
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
             img: 'https://images.pexels.com/photos/13461069/pexels-photo-13461069.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
         }
