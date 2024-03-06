@@ -4,6 +4,7 @@ import RenderPosts from "../../components/RenderPosts/RenderPosts"
 import ShowCategory from "../../components/ShowCategory/ShowCategory"
 import CreatePostBtn from "../../components/CreatePostBtn/CreatePostBtn"
 
+
 export default function Home(){
 
     const data = [
@@ -45,7 +46,7 @@ export default function Home(){
 
     return (
         <>
-            <Header loggedIn={true} />
+            <Header />
             <main className="flex flex-col p-12 gap-6">
                 <CreatePostBtn />
                 <h2 className="font-bold text-blue text-2xl">Principais notícias</h2>

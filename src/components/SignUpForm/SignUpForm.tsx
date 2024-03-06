@@ -16,7 +16,7 @@ export default function SignUpForm({ changeHasAccount }: SignUpFormProps){
     const passwordRef = useRef<HTMLInputElement>(null)
     const passwordConfirmationRef = useRef<HTMLInputElement>(null)
 
-    async function handleSubmit(e: React.FormEvent<HTMLInputElement>){
+    async function handleSubmit(e: React.FormEvent<HTMLInputElement>): Promise<void>{
         e.preventDefault()
         if (!nameRef.current?.value || !userNameRef.current?.value || !emailRef.current?.value || !passwordRef.current?.value || !passwordConfirmationRef.current?.value){
             alert('Preencha todos os dados')
@@ -33,7 +33,7 @@ export default function SignUpForm({ changeHasAccount }: SignUpFormProps){
         }
     }
 
-    async function handleLogin(){
+    async function handleLogin(): Promise<void>{
         const response = await api.post('/users/login', {
             email: emailRef.current?.value,
             password: passwordRef.current?.value

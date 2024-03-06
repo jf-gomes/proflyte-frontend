@@ -23,6 +23,9 @@ export default {
       },
       borderWidth: {
         '1': '1px'
+      },
+      maxHeight: {
+        '128': '32rem',
       }
     },
   },

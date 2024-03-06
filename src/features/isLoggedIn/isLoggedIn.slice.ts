@@ -5,7 +5,7 @@ interface IsLoggedIn{
 }
 
 const initialState: IsLoggedIn = {
-    value: true
+    value: false
 }
 
 export const isLoggedInSlice = createSlice({

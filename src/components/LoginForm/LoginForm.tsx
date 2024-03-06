@@ -1,14 +1,36 @@
 import { useRef } from 'react'
 import { api } from '../../services/api'
 import { useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { setUserData } from '../../features/userData/userData.slice'
+import { setTrue } from '../../features/isLoggedIn/isLoggedIn.slice'
 
 type LoginFormProps = {
     changeHasAccount: () => void
 }
 
+interface PostType{
+    id: string,
+    title: string,
+    tag: string,
+    description: string,
+    img: string
+}
+
+interface DataType{
+    id: string,
+    name: string,
+    userName: string,
+    email: string,
+    img?: string,
+    about: string,
+    posts: PostType[]
+}
+
 export default function LoginForm({ changeHasAccount }: LoginFormProps): JSX.Element{
 
     const navigate = useNavigate()
+    const dispatch = useDispatch()
 
     const emailRef = useRef<HTMLInputElement>(null)
     const passwordRef = useRef<HTMLInputElement>(null)
@@ -19,7 +41,19 @@ export default function LoginForm({ changeHasAccount }: LoginFormProps): JSX.Ele
             email: emailRef.current?.value,
             password: passwordRef.current?.value
         })
-        response.status == 200 && navigate('/home')
+        response.status == 200 && navigate('/me')
+        console.log(response)
+        const userData: DataType = {
+            id: response.data.id,
+            name: response.data.user.name,
+            userName: response.data.user.userName,
+            img: response.data.user.img,
+            email: response.data.user.email,
+            about: response.data.user.about,
+            posts: response.data.user.posts
+        }
+        dispatch(setUserData(userData))
+        dispatch(setTrue())
     }
 
     return (

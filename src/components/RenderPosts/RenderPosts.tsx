@@ -7,11 +7,12 @@ interface PostType{
 }
 
 interface RenderPostsProps{
+    userName?: string,
     posts: PostType[],
     type: 'user' | 'all'
 }
 
-export default function RenderPosts({ posts, type }: RenderPostsProps){
+export default function RenderPosts({ userName, posts, type }: RenderPostsProps){
     if (type == 'all') {
         return (
             <div className="columns-1 1100:columns-2 2400:columns-3">
@@ -30,7 +31,7 @@ export default function RenderPosts({ posts, type }: RenderPostsProps){
     } else {
         return (
             <section className="flex flex-col items-center gap-12">
-            <h3 className="text-2xl font-bold">Publicações de Maya Parvati</h3>
+            <h3 className="text-2xl font-bold">Publicações de {userName}</h3>
             {posts.map((post) => (
                 <div key={post.id} className="flex gap-6 items-center">
                     <img className="max-w-40 780:max-w-96 440:max-w-60 rounded-xl" src={post.img} alt={post.title} />
