@@ -2,6 +2,9 @@ import { SlUserFollow } from "react-icons/sl";
 import { useAppSelector } from '../../hooks/hooks';
 import RenderPosts from '../../components/RenderPosts/RenderPosts';
 import Header from "../../components/Header/Header";
+import { AxiosResponse } from "axios";
+import { api } from "../../services/api";
+import { useEffect, useState } from "react";
 
 interface PostType{
     id: string,
@@ -12,6 +15,7 @@ interface PostType{
 }
 
 interface DataType{
+    id?: string,
     name: string,
     userName: string,
     email: string,
@@ -23,6 +27,18 @@ interface DataType{
 export default function Profile(){
 
     const userData: DataType | undefined = useAppSelector((state) => state.changeUserData.data)
+
+    async function getPosts(){
+        const response: AxiosResponse = await api.get(`/post/get/${userData?.id}`)
+        const posts: PostType = response.data
+        setUserPosts(posts)
+    }
+
+    useEffect(() => {
+        getPosts()
+    }, [])
+
+    const [userPosts, setUserPosts] = useState<any>([])
 
     return (
         <>
@@ -38,7 +54,7 @@ export default function Profile(){
                         <p className='text-justify'>{userData?.about}</p>
                     </div>
                 </div>
-                <RenderPosts userName={userData?.userName} posts={userData?.posts} type='user' />
+                <RenderPosts userName={userData?.userName} posts={userPosts} type='user' />
             </main>
         </>
     )

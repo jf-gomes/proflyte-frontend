@@ -19,7 +19,8 @@ interface DataType{
     email: string,
     img?: string,
     about: string,
-    posts: PostType[]
+    posts: PostType[],
+    token: string
 }
 
 const initialState: UserData = {

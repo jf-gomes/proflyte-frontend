@@ -76,3 +76,19 @@ export const categories: CategoryType[] = [
         label: 'Administração Pública'
     },
 ]
+
+export const categoriesObj: any = {
+    technology: 'Tecnologia',
+    engineering: 'Engenharia',
+    business: 'Gestão e Negócios',
+    environment: 'Meio Ambiente',
+    marketing: 'Marketing',
+    journalism: 'Jornalismo',
+    architecture: 'Arquitetura',
+    education: 'Educação',
+    health: 'Saúde',
+    industry: 'Indústria',
+    design: 'Design',
+    graphic_computing: 'Computação Gráfica',
+    public_management: 'Administração Pública'
+}
