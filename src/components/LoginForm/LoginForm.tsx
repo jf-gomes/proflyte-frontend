@@ -35,7 +35,8 @@ export default function LoginForm({ changeHasAccount }: LoginFormProps): JSX.Ele
             posts: response.data.user.posts,
             token: response.data.token
         })
-        dispatch(setUserData(user.userData()))
+        console.log(user.getUserData())
+        dispatch(setUserData(user.getUserData()))
         dispatch(setTrue())
     }
 

@@ -44,17 +44,16 @@ export class User{
         this.token = token
     }
 
-    userData(): any{
-        return (
-            this.id,
-            this.name,
-            this.userName,
-            this.email,
-            this.img,
-            this.about,
-            this.posts,
-            this.token
-        )
+    getUserData(): any{
+        this.id
+        this.name
+        this.userName
+        this.email
+        this.img
+        this.about
+        this.posts
+        this.token
+        return this
     }
 }
 
