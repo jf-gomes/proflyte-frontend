@@ -5,7 +5,7 @@ interface ShowCategoryProps{
     setCategory: (category: string) => void
 }
 
-export default function ShowCategory({ category, setCategory }: ShowCategoryProps){
+export default function ShowCategory({ setCategory }: ShowCategoryProps){
     return (
         <nav>
             <ul className="flex gap-6 flex-wrap text-grey">

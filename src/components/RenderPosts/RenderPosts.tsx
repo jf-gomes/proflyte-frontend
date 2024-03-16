@@ -2,6 +2,7 @@ import { categoriesObj } from "../Categories/Categories"
 import { useDispatch } from "react-redux"
 import { setPostData } from "../../features/post/post.slice"
 import { useNavigate } from "react-router-dom"
+import { useEffect, useState } from "react"
 
 interface PostType{
     id: string,
@@ -16,10 +17,11 @@ interface PostType{
 interface RenderPostsProps{
     userName?: string,
     posts: PostType[],
-    type: 'user' | 'all'
+    type: 'user' | 'all',
+    category?: string
 }
 
-export default function RenderPosts({ userName, posts, type }: RenderPostsProps){
+export default function RenderPosts({ category, userName, posts, type }: RenderPostsProps){
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
@@ -33,10 +35,21 @@ export default function RenderPosts({ userName, posts, type }: RenderPostsProps)
         navigate(`/${post.id}`)
     }
 
+    const [postsToRender, setPostsToRender] = useState<PostType[]>([])
+
+    useEffect(() => {
+        if (category == 'all'){
+            setPostsToRender(posts)
+        } else {
+            const categoryPosts = posts.filter((post) => post.tag == category)
+            setPostsToRender(categoryPosts)
+        }
+    }, [category])
+
     if (type == 'all') {
         return (
             <div className="flex flex-wrap gap-12">
-                {posts.map((post) => (
+                {postsToRender.map((post) => (
                 <div key={post.id} className="flex gap-6 mb-12">
                     <img className="h-20 780:h-60 440:h-40 rounded-xl" src={post.img} alt={post.title} />
                     <div className="max-w-80 flex flex-col gap-2">

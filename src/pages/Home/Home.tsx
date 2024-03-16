@@ -36,7 +36,7 @@ export default function Home(){
             <main className="flex flex-col p-12 gap-6">
                 <h2 className="font-bold text-blue text-2xl">Principais notícias</h2>
                 <ShowCategory category={category} setCategory={setCategory} />
-                <RenderPosts posts={posts} type="all" />
+                <RenderPosts category={category} posts={posts} type="all" />
             </main>
         </>
     )
