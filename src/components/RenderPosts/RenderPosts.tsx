@@ -35,10 +35,10 @@ export default function RenderPosts({ userName, posts, type }: RenderPostsProps)
 
     if (type == 'all') {
         return (
-            <div className="columns-1 1100:columns-2 2400:columns-3">
+            <div className="flex flex-wrap gap-12">
                 {posts.map((post) => (
                 <div key={post.id} className="flex gap-6 mb-12">
-                    <img className="max-w-40 780:max-w-80 440:max-w-60 rounded-xl max-h-60" src={post.img} alt={post.title} />
+                    <img className="h-20 780:h-60 440:h-40 rounded-xl" src={post.img} alt={post.title} />
                     <div className="max-w-80 flex flex-col gap-2">
                         <h3 className="text-md 440:text-xl font-bold text-blue hover:underline cursor-pointer text-justify" onClick={() => renderPost(post)}>{post.title}</h3>
                         <p className="text-grey">{renderCategory(post.tag)}</p>
@@ -56,7 +56,7 @@ export default function RenderPosts({ userName, posts, type }: RenderPostsProps)
                 <div key={post.id} className="flex gap-6 items-center">
                     <img className="max-w-40 780:max-w-96 440:max-w-60 rounded-xl" src={post.img} alt={post.title} />
                     <div className="max-w-80">
-                        <p className="text-grey">{post.tag}</p>
+                        <p className="text-grey">{renderCategory(post.tag)}</p>
                         <h3 className="text-xl font-bold text-blue hover:underline cursor-pointer">{post.title}</h3>
                         <p className="text-justify">{post.description}</p>
                     </div>

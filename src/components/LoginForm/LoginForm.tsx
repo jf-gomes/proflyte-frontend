@@ -4,28 +4,10 @@ import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { setUserData } from '../../features/userData/userData.slice'
 import { setTrue } from '../../features/isLoggedIn/isLoggedIn.slice'
+import { User } from '../../features/userData/userData.slice'
 
 type LoginFormProps = {
     changeHasAccount: () => void
-}
-
-interface PostType{
-    id: string,
-    title: string,
-    tag: string,
-    description: string,
-    img: string
-}
-
-interface DataType{
-    id: string,
-    name: string,
-    userName: string,
-    email: string,
-    img?: string,
-    about: string,
-    posts: PostType[],
-    token: string
 }
 
 export default function LoginForm({ changeHasAccount }: LoginFormProps): JSX.Element{
@@ -43,7 +25,7 @@ export default function LoginForm({ changeHasAccount }: LoginFormProps): JSX.Ele
             password: passwordRef.current?.value
         })
         response.status == 200 && navigate('/home')
-        const userData: DataType = {
+        const user = new User({
             id: response.data.id,
             name: response.data.user.name,
             userName: response.data.user.userName,
@@ -52,8 +34,8 @@ export default function LoginForm({ changeHasAccount }: LoginFormProps): JSX.Ele
             about: response.data.user.about,
             posts: response.data.user.posts,
             token: response.data.token
-        }
-        dispatch(setUserData(userData))
+        })
+        dispatch(setUserData(user.userData()))
         dispatch(setTrue())
     }
 
